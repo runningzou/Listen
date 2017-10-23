@@ -289,6 +289,7 @@ public class PlayListFragment extends Fragment implements Injector {
                     public void accept(PlayList list) throws Exception {
 
                         for (int i = 0; i < mAdapter.getItems().size(); i++) {
+                            Logger.d("id1 = " + mAdapter.getItems().get(i).getId() + " id2=" + list.getId() );
                             if (mAdapter.getItems().get(i).getId() == list.getId()) {
                                 mAdapter.update(i);
                                 break;

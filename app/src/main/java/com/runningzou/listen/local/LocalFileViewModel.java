@@ -4,6 +4,7 @@ import android.arch.lifecycle.ViewModel;
 
 import com.runningzou.listen.base.rxjava.RxCommand;
 import com.runningzou.listen.data.LocalSongs;
+import com.runningzou.listen.model.DaoSession;
 import com.runningzou.listen.model.Song;
 
 import java.util.List;
@@ -27,10 +28,12 @@ public class LocalFileViewModel extends ViewModel {
     private RxCommand<List<Song>, Object> mLocalSongsRxCommand;
 
     private LocalSongs mLocalSongs;
+    private DaoSession mDaoSession;
 
     @Inject
-    public LocalFileViewModel(LocalSongs localSongs) {
+    public LocalFileViewModel(LocalSongs localSongs, DaoSession daoSession) {
         mLocalSongs = localSongs;
+        mDaoSession = daoSession;
     }
 
 
@@ -43,7 +46,8 @@ public class LocalFileViewModel extends ViewModel {
                     return Observable.create(new ObservableOnSubscribe<List<Song>>() {
                         @Override
                         public void subscribe(@NonNull ObservableEmitter<List<Song>> e) throws Exception {
-                            e.onNext(mLocalSongs.getLocalSongs());
+                            List<Song> songs = mLocalSongs.getLocalSongs();
+                            e.onNext(songs);
                             e.onComplete();
                         }
                     })

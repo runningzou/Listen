@@ -42,7 +42,7 @@ public class PlayList {
 
 
     @ToMany(referencedJoinProperty = "play_list_id")
-    private List<Song> songs = null;
+    private List<Song> songs = new ArrayList<>();
 
     @Transient
     private int playingIndex = -1;
