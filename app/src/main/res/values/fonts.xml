@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="listen.font.roboto.regular">fonts/Roboto-Regular.ttf</string>
+    <string name="listen.font.roboto.medium">fonts/Roboto-Medium.ttf</string>
+    <string name="listen.font.roboto.thin">fonts/Roboto-Thin.ttf</string>
+    <string name="listen.font.roboto.monospace.regular">fonts/Roboto-Monospace-Regular.ttf</string>
+</resources>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+        <FrameLayout
+            android:clickable="true"
+            android:id="@+id/layout_add_play_list"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/listen.list.itemHeight"
+            android:background="@color/listen.list.background"
+            >
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="?attr/selectableItemBackground"
+                />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center_vertical"
+                >
+
+                <android.support.v7.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/listen.padding.large"
+                    android:layout_marginRight="@dimen/listen.padding.large"
+                    app:srcCompat="@drawable/ic_list_add"
+                    />
+
+                <android.support.v7.widget.AppCompatTextView
+                    style="@style/Listen.Theme.TextAppearance.List.Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/listen.play_list.footer.add"
+                    />
+            </LinearLayout>
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/text_view_sum"
+            style="@style/Listen.Theme.TextAppearance.List.EndSummary"
+            tools:text="3 play lists in total"
+            />
+    </LinearLayout>
+
+</layout>

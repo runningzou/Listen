@@ -1,0 +1,45 @@
+<resources>
+    <string name="app_name">Listen</string>
+
+    <string name="listen.list.layoutManager.linear">LinearLayoutManager</string>
+
+    <!-- Activity/Fragment Titles -->
+    <string name="listen.fragment.title.play_list">播放列表</string>
+    <string name="listen.fragment.title.music">音乐</string>
+    <string name="listen.fragment.title.local_files">本地音乐</string>
+    <string name="listen.fragment.title.settings">设置</string>
+    <string name="listen.local_files.music_list.empty">设备上没有找到音乐</string>
+
+    <string name="listen.item.title.collection">收藏</string>
+    <string name="listen.play_list.footer.add">添加播放列表</string>
+
+    <string-array name="listen_main_titles">
+        <item>@string/listen.fragment.title.play_list</item>
+        <item>@string/listen.fragment.title.music</item>
+        <item>@string/listen.fragment.title.local_files</item>
+        <!--<item>@string/listen.fragment.title.settings</item>-->
+    </string-array>
+
+    <plurals name="listen_play_list_items_formatter">
+        <item quantity="one">%d 首歌</item>
+        <item quantity="other">%d 首歌</item>
+    </plurals>
+
+    <string name="listen.menu.play_now">立即播放</string>
+    <string name="listen.menu.rename">重命名</string>
+    <string name="listen.menu.delete">删除</string>
+
+    <string name="listen.play_list.footer.end_summary_formatter">总共有 %d 个播放列表</string>
+    <string name="listen.local.footer.end_summary_formatter">总共有 %d 首歌曲</string>
+
+    <string name="listen.dialog.title.create_play_list">创建播放列表</string>
+    <string name="listen.dialog.title.edit_play_list">编辑播放列表</string>
+    <string name="listen.dialog.edittext.create_play_list_hint">播放列表名称</string>
+    <string name="listen.dialog.button.sure">确定</string>
+    <string name="listen.dialog.button.cancel">取消</string>
+
+    <string name="listen.txt.error.hint.no_songs">没有本地音乐...</string>
+
+    <string name="listen.music.default_duration">00:00</string>
+
+</resources>

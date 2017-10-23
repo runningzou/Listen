@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Listen.Theme.Widget.Toolbar">
+        <item name="android:id">@id/toolbar</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">?android:attr/actionBarSize</item>
+        <item name="titleTextAppearance">@style/Listen.Theme.TextAppearance.Light.Toolbar.Title</item>
+    </style>
+
+    <style name="Listen.Theme.TextAppearance.Toolbar">
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="Listen.Theme.TextAppearance.Light.Toolbar.Title" parent="Listen.Theme.TextAppearance.Toolbar">
+        <item name="android:textColor">@color/listen.theme.dark_blue.colorAccent</item>
+    </style>
+</resources>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Listen.Theme.TextAppearance.List">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="Listen.Theme.Widget.RecyclerView">
+        <item name="layoutManager">@string/listen.list.layoutManager.linear</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:scrollbars">vertical</item>
+        <item name="android:scrollbarThumbVertical">@color/listen.list.scrollThumb</item>
+        <item name="android:scrollbarSize">@dimen/listen.list.scrollbarSize</item>
+    </style>
+
+    <style name="Listen.Theme.TextAppearance.List.Empty">
+        <item name="android:id">@id/text_view_empty</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">@dimen/listen.margin.xlarge</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/listen.text.hint</item>
+        <item name="android:gravity">center</item>
+        <item name="android:visibility">gone</item>
+    </style>
+
+    <style name="Listen.Theme.TextAppearance.List.Hint">
+        <item name="android:textColor">@color/selector_list_hint_text</item>
+        <item name="android:textSize">@dimen/listen.text.list.hint</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+    <style name="Listen.Theme.TextAppearance.List.Title">
+        <item name="android:textColor">@color/selector_list_title_text</item>
+        <item name="android:textSize">@dimen/listen.text.list.title</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+    <style name="Listen.Theme.TextAppearance.List.EndSummary">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/listen.text.hint</item>
+        <item name="android:textSize">@dimen/listen.text.hint</item>
+        <item name="android:gravity">center</item>
+        <item name="android:padding">@dimen/listen.padding.large</item>
+    </style>
+</resources>

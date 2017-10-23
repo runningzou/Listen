@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Listen.Theme.Widget.BaseDialog" parent="Theme.AppCompat.Dialog">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:windowSoftInputMode">adjustPan</item>
+        <item name="android:windowIsFloating">true</item>
+    </style>
+
+    <style name="DefaultAnimation" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/enter_anim</item>
+        <item name="android:windowExitAnimation">@anim/exit_anim</item>
+    </style>
+
+    <style name="Listen.Theme.TextAppearance.Dialog">
+    </style>
+
+    <style name="Listen.Theme.TextAppearance.Dialog.Title">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/listen.text.dialog.title</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:layout_marginTop">@dimen/listen.padding.large</item>
+        <item name="android:layout_marginLeft">@dimen/listen.padding.xlarge</item>
+        <item name="android:layout_marginBottom">@dimen/listen.padding.large</item>
+    </style>
+
+    <style name="Listen.Theme.TextAppearance.Dialog.EditText" parent="Widget.AppCompat.EditText">
+        <item name="android:textColorHint">@color/listen.text.hint</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/listen.text.dialog.edittext</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:layout_marginLeft">@dimen/listen.padding.xlarge</item>
+        <item name="android:layout_marginRight">@dimen/listen.padding.xlarge</item>
+    </style>
+
+
+    <style name="Listen.Theme.TextAppearance.Dialog.Button">
+        <item name="android:layout_marginBottom">@dimen/listen.margin.small</item>
+        <item name="android:layout_width">@dimen/listen.width.dialog.button</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">?attr/selectableItemBackground</item>
+        <item name="android:textSize">@dimen/listen.text.dialog.button</item>
+    </style>
+
+
+</resources>

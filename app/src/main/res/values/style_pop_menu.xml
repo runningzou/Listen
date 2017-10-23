@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Listen.Theme.Widget.PopupMenu" parent="Widget.AppCompat.PopupMenu">
+        <item name="android:popupBackground">@color/listen.popupMenu.background</item>
+        <item name="android:dropDownHorizontalOffset">-24dp</item>
+    </style>
+
+
+    <style name="Listen.Theme.TextAppearance.LargePopupMenu" parent="TextAppearance.AppCompat.Widget.PopupMenu.Large">
+        <item name="android:textColor">@color/listen.theme.dark_blue.colorPrimary</item>
+    </style>
+
+    <style name="Listen.Theme.TextAppearance.SmallPopupMenu" parent="TextAppearance.AppCompat.Widget.PopupMenu.Small">
+        <item name="android:textColor">@color/listen.theme.dark_blue.colorPrimary</item>
+    </style>
+</resources>

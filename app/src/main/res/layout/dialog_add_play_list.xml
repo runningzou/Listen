@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout>
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="@dimen/listen.padding.xlarge"
+        android:background="@color/listen.theme.dark_blue.background"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/txt_title"
+            style="@style/Listen.Theme.TextAppearance.Dialog.Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/listen.dialog.title.create_play_list"/>
+
+        <com.runningzou.listen.ui.MaxHeightRecyclerView
+            android:id="@+id/recycler_view"
+            style="@style/Listen.Theme.Widget.RecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipToPadding="false"
+            android:paddingBottom="@dimen/listen.padding.large"
+            android:paddingTop="@dimen/listen.padding.large"
+            tools:listitem="@layout/item_play_list"
+            />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/btn_cancle"
+                style="@style/Listen.Theme.TextAppearance.Dialog.Button"
+                android:layout_alignParentRight="true"
+                android:text="@string/listen.dialog.button.cancel"/>
+        </RelativeLayout>
+
+
+    </LinearLayout>
+</layout>

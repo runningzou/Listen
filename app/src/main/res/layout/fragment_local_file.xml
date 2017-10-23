@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <View
+            android:id="@+id/divider"
+            style="@style/Listen.Theme.Widget.Divider.Line.Vertical"/>
+
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/swipe_refresh"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycler_view"
+                style="@style/Listen.Theme.Widget.RecyclerView"
+                android:layout_below="@+id/divider"
+                android:clipToPadding="false"
+                android:paddingTop="@dimen/listen.padding.large"
+                tools:listitem="@layout/item_play_list"/>
+
+        </android.support.v4.widget.SwipeRefreshLayout>
+        
+        <TextView
+            android:id="@+id/txt_no_songs"
+            style="@style/Listen.Theme.Widget.TextView_Error_Hint"
+            android:text="@string/listen.txt.error.hint.no_songs"
+            />
+    </RelativeLayout>
+</layout>
+

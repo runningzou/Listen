@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Common -->
+    <dimen name="listen.divider.line">1px</dimen>
+    <dimen name="listen.divider.small">4dp</dimen>
+    <dimen name="listen.divider.normal">8dp</dimen>
+    <dimen name="listen.divider.large">16dp</dimen>
+    <dimen name="listen.divider.xlarge">24dp</dimen>
+
+    <dimen name="listen.padding.small">4dp</dimen>
+    <dimen name="listen.padding.normal">8dp</dimen>
+    <dimen name="listen.padding.large">16dp</dimen>
+    <dimen name="listen.padding.xlarge">24dp</dimen>
+
+    <dimen name="listen.margin.small">4dp</dimen>
+    <dimen name="listen.margin.normal">8dp</dimen>
+    <dimen name="listen.margin.large">16dp</dimen>
+    <dimen name="listen.margin.xlarge">24dp</dimen>
+
+    <dimen name="listen.text.list.title">14sp</dimen>
+    <dimen name="listen.text.list.hint">12sp</dimen>
+    <dimen name="listen.text.hint">12sp</dimen>
+
+    <dimen name="listen.toolbar.paddingTop">0dp</dimen>
+
+    <dimen name="listen.material.marginLeft">72dp</dimen>
+
+    <dimen name="listen.list.itemHeight">54dp</dimen>
+    <dimen name="listen.list.scrollbarSize">4dp</dimen>
+
+    <!-- Music -->
+    <dimen name="listen.music.album.size">260dp</dimen>
+    <dimen name="listen.music.seekBar.marginTop">50dp</dimen>
+    <dimen name="listen.music.playControls.marginTop">24dp</dimen>
+    <dimen name="listen.music.playControls.marginBottom">8dp</dimen>
+
+    <!-- CharacterView -->
+    <dimen name="listen.characterView.padding">6dp</dimen>
+
+    <dimen name="listen.text.dialog.title">20sp</dimen>
+    <dimen name="listen.text.dialog.edittext">16sp</dimen>
+    <dimen name="listen.text.dialog.button">14sp</dimen>
+
+    <dimen name="listen.width.dialog.button">60dp</dimen>
+
+</resources>

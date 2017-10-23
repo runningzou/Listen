@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/listen.theme.dark_blue.colorPrimary</item>
+        <item name="colorPrimaryDark">@color/listen.theme.dark_blue.colorPrimaryDark</item>
+        <item name="colorAccent">@color/listen.theme.dark_blue.colorAccent</item>
+
+        <item name="android:textColorPrimary">@color/listen.theme.dark_blue.textColorPrimary</item>
+        <item name="android:textColorSecondary">@color/listen.theme.dark_blue.textColorSecondary
+        </item>
+
+        <item name="android:windowBackground">@color/listen.theme.dark_blue.background</item>
+
+        <item name="colorControlNormal">?attr/colorAccent</item>
+        <item name="colorControlActivated">@color/listen.theme.dark_blue.colorControlActivated
+        </item>
+        <item name="colorControlHighlight">@color/listen.theme.dark_blue.colorControlHighlight
+        </item>
+
+        <!-- ActionMode -->
+        <item name="windowActionModeOverlay">true</item>
+        <item name="actionModeStyle">@style/Listen.Theme.Widget.ActionMode</item>
+        <item name="actionModeCloseButtonStyle">@style/Listen.Theme.Widget.ActionMode.CloseButton
+        </item>
+
+
+        <!-- PopupMenu -->
+        <item name="popupMenuStyle">@style/Listen.Theme.Widget.PopupMenu</item>
+        <item name="textAppearanceLargePopupMenu">
+            @style/Listen.Theme.TextAppearance.LargePopupMenu
+        </item>
+        <item name="textAppearanceSmallPopupMenu">
+            @style/Listen.Theme.TextAppearance.SmallPopupMenu
+        </item>
+    </style>
+
+    <style name="Listen.Theme" parent="AppTheme"/>
+
+    <style name="Listen.Theme.Widget"/>
+
+    <style name="Listen.Theme.TextAppearance">
+        <item name="fontPath">@string/listen.font.roboto.monospace.regular</item>
+    </style>
+
+
+</resources>
