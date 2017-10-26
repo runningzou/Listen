@@ -53,6 +53,10 @@ public class AddPlayListDialogViewModel extends ViewModel {
                                     .orderAsc(PlayListDao.Properties.Id)
                                     .list();
 
+                            for (PlayList list : lists ){
+                                list.getSongs();
+                            }
+
                             e.onNext(lists);
                             e.onComplete();
                         }

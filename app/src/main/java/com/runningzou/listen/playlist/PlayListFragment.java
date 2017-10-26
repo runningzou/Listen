@@ -13,7 +13,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.jakewharton.rxbinding2.view.RxView;
-import com.orhanobut.logger.Logger;
 import com.runningzou.listen.R;
 import com.runningzou.listen.app.Injector;
 import com.runningzou.listen.app.RxBus;
@@ -289,8 +288,9 @@ public class PlayListFragment extends Fragment implements Injector {
                     public void accept(PlayList list) throws Exception {
 
                         for (int i = 0; i < mAdapter.getItems().size(); i++) {
-                            Logger.d("id1 = " + mAdapter.getItems().get(i).getId() + " id2=" + list.getId() );
                             if (mAdapter.getItems().get(i).getId() == list.getId()) {
+                                mAdapter.getItems().remove(i);
+                                mAdapter.getItems().add(i,list);
                                 mAdapter.update(i);
                                 break;
                             }

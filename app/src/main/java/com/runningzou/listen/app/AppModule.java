@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import com.runningzou.listen.main.MainActivityComponent;
 import com.runningzou.listen.model.DaoMaster;
 import com.runningzou.listen.model.DaoSession;
+import com.runningzou.listen.player.PlayerServiceComponent;
 
 import javax.inject.Singleton;
 
@@ -17,7 +18,7 @@ import dagger.Provides;
  * Created by zouzhihao on 2017/10/18.
  */
 
-@Module(subcomponents = {MainActivityComponent.class})
+@Module(subcomponents = {MainActivityComponent.class, PlayerServiceComponent.class})
 public class AppModule {
 
     @Singleton

@@ -42,7 +42,7 @@ public class PlayList {
 
 
     @ToMany(referencedJoinProperty = "play_list_id")
-    private List<Song> songs = new ArrayList<>();
+    private List<Song> songs;
 
     @Transient
     private int playingIndex = -1;
@@ -50,17 +50,21 @@ public class PlayList {
     @Convert(converter = PlayModeConvert.class, columnType = Integer.class)
     private PlayMode playMode = PlayMode.LOOP;
 
-    /** Used to resolve relations */
+    /**
+     * Used to resolve relations
+     */
     @Generated(hash = 2040040024)
     private transient DaoSession daoSession;
 
-    /** Used for active entity operations. */
+    /**
+     * Used for active entity operations.
+     */
     @Generated(hash = 472247056)
     private transient PlayListDao myDao;
 
     @Generated(hash = 513233386)
     public PlayList(Long id, String name, int numOfSongs, boolean favorite, Date createdAt,
-            Date updatedAt, PlayMode playMode) {
+                    Date updatedAt, PlayMode playMode) {
         this.id = id;
         this.name = name;
         this.numOfSongs = numOfSongs;
@@ -90,7 +94,6 @@ public class PlayList {
     }
 
 
-
     public Song last() {
         switch (playMode) {
             case LOOP:
@@ -110,11 +113,9 @@ public class PlayList {
         return songs.get(playingIndex);
     }
 
-    public boolean hasNext(boolean fromComplete) {
+    public boolean hasNext() {
         if (songs.isEmpty()) return false;
-        if (fromComplete) {
-            if (playMode == PlayMode.LIST && playingIndex + 1 >= songs.size()) return false;
-        }
+        if (playMode == PlayMode.LIST && playingIndex + 1 >= songs.size()) return false;
         return true;
     }
 
@@ -211,7 +212,6 @@ public class PlayList {
     }
 
 
-
     /**
      * To-many relationship, resolved on first access (and after reset).
      * Changes to to-many relations are not persisted, make changes to the target entity.
@@ -234,7 +234,18 @@ public class PlayList {
         return songs;
     }
 
-    /** Resets a to-many relationship, making the next get call to query for a fresh result. */
+    public void addSongs(Song song) {
+        if (songs == null) {
+            songs = new ArrayList<>();
+            songs.add(song);
+        }
+
+        songs.add(song);
+    }
+
+    /**
+     * Resets a to-many relationship, making the next get call to query for a fresh result.
+     */
     @Generated(hash = 432021166)
     public synchronized void resetSongs() {
         songs = null;
@@ -282,8 +293,6 @@ public class PlayList {
         this.daoSession = daoSession;
         myDao = daoSession != null ? daoSession.getPlayListDao() : null;
     }
-
-
 
 
     public static class PlayModeConvert implements PropertyConverter<PlayMode, Integer> {

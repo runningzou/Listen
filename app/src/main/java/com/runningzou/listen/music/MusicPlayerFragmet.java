@@ -23,8 +23,8 @@ import com.runningzou.listen.data.TimeUtils;
 import com.runningzou.listen.databinding.FragmentMusicBinding;
 import com.runningzou.listen.model.PlayList;
 import com.runningzou.listen.model.Song;
-import com.runningzou.listen.player.PlaybackService;
-import com.runningzou.listen.player.Player;
+import com.runningzou.listen.player.PlayMode;
+import com.runningzou.listen.player.PlayerService;
 
 import java.util.concurrent.TimeUnit;
 
@@ -39,15 +39,14 @@ import io.reactivex.functions.Consumer;
 public class MusicPlayerFragmet extends Fragment implements Injector {
 
 
-    private PlaybackService mService;
+    private PlayerService mService;
     private FragmentMusicBinding mBinding;
     private boolean mProgressPause = false;
-    private PlayList mPlayList;
 
     private ServiceConnection mConnection = new ServiceConnection() {
         @Override
         public void onServiceConnected(ComponentName name, IBinder service) {
-            mService = ((PlaybackService.LocalBinder) service).getService();
+            mService = ((PlayerService.LocalBinder) service).getService();
         }
 
         @Override
@@ -57,8 +56,8 @@ public class MusicPlayerFragmet extends Fragment implements Injector {
     };
 
     private void updateUI(Song song) {
-        if(mService.isPlaying()) {
-            mBinding.buttonPlayToggle.setImageResource(R.drawable.ic_pause);
+        if(mService.isPlaying()){
+           mBinding.buttonPlayToggle.setImageResource(R.drawable.ic_pause);
         } else {
             mBinding.buttonPlayToggle.setImageResource(R.drawable.ic_play);
         }
@@ -73,16 +72,6 @@ public class MusicPlayerFragmet extends Fragment implements Injector {
             mBinding.buttonFavoriteToggle.setImageResource(R.drawable.ic_favorite_no);
         }
 
-//        Bitmap bitmap = AlbumUtils.parseAlbum(song);
-//
-//        Bitmap oldBitmap = ((BitmapDrawable) mBinding.imageViewAlbum.getDrawable()).getBitmap();
-//        oldBitmap.recycle();
-//
-//        if (bitmap != null) {
-//            mBinding.imageViewAlbum.setImageBitmap(AlbumUtils.getCroppedBitmap(bitmap));
-//        } else {
-//            mBinding.imageViewAlbum.setImageResource(R.drawable.default_record_album);
-//        }
     }
 
     @Override
@@ -94,7 +83,7 @@ public class MusicPlayerFragmet extends Fragment implements Injector {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        getActivity().bindService(new Intent(getActivity(), PlaybackService.class), mConnection, Context.BIND_AUTO_CREATE);
+        getActivity().bindService(new Intent(getActivity(), PlayerService.class), mConnection, Context.BIND_AUTO_CREATE);
     }
 
     @Nullable
@@ -102,14 +91,14 @@ public class MusicPlayerFragmet extends Fragment implements Injector {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         mBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_music, container, false);
 
-        RxBus.getInstance().toObservable(Song.class)
+        RxBus.getInstance()
+                .toObservable(Song.class)
                 .compose(Live.<Song>bindLifecycle(this))
                 .subscribe(new Consumer<Song>() {
                     @Override
                     public void accept(Song song) throws Exception {
                         if (mService != null) {
                             mService.play(song);
-                            mPlayList = mService.getPlayList();
                             updateUI(song);
                         }
 
@@ -122,10 +111,9 @@ public class MusicPlayerFragmet extends Fragment implements Injector {
                     @Override
                     public void accept(PlayList playList) throws Exception {
                         if (mService != null) {
-
+                                playList.getSongs();
                             if (playList.prepare()) {
                                 mService.play(playList);
-                                mPlayList = playList;
                                 updateUI(mService.getPlayingSong());
                             }
 
@@ -139,8 +127,6 @@ public class MusicPlayerFragmet extends Fragment implements Injector {
             public void onClick(View v) {
                 if (mService == null) return;
 
-                if (mPlayList == null) return;
-
                 if (mService.isPlaying()) {
                     mBinding.buttonPlayToggle.setImageResource(R.drawable.ic_play);
                     mBinding.imageViewAlbum.pauseRotateAnimation();
@@ -148,7 +134,7 @@ public class MusicPlayerFragmet extends Fragment implements Injector {
                 } else {
                     mBinding.buttonPlayToggle.setImageResource(R.drawable.ic_pause);
                     mBinding.imageViewAlbum.resumeRotateAnimation();
-                    mService.play();
+                    mService.resume();
                 }
             }
         });
@@ -178,8 +164,6 @@ public class MusicPlayerFragmet extends Fragment implements Injector {
             @Override
             public void onClick(View v) {
 
-                if (mPlayList == null) return;
-
                 if (mService != null) {
                     mService.playLast();
                     updateUI(mService.getPlayingSong());
@@ -190,7 +174,6 @@ public class MusicPlayerFragmet extends Fragment implements Injector {
         mBinding.buttonPlayNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (mPlayList == null) return;
 
                 if (mService != null) {
                     mService.playNext();
@@ -203,11 +186,9 @@ public class MusicPlayerFragmet extends Fragment implements Injector {
             @Override
             public void onClick(View v) {
 
-                if (mPlayList == null) return;
+                PlayMode nextMode = mService.nextMode();
 
-                mService.nextMode();
-
-                switch (mService.getPlayMode()) {
+                switch (nextMode) {
                     case SINGLE:
                         mBinding.buttonPlayModeToggle.setImageResource(R.drawable.ic_play_mode_single);
                         break;
