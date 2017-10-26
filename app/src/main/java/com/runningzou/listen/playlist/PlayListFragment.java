@@ -273,6 +273,8 @@ public class PlayListFragment extends Fragment implements Injector {
                         for (PlayList play : mAdapter.getItems()) {
                             if (play.getId() == playList.getId()) {
                                 index = mAdapter.getItems().indexOf(play);
+                                mAdapter.getItems().remove(index);
+                                mAdapter.getItems().add(index,play);
                             }
                         }
 
@@ -280,7 +282,8 @@ public class PlayListFragment extends Fragment implements Injector {
                     }
                 });
 
-        mPlayListViewModel.addToPlayListRxCommand()
+        mPlayListViewModel
+                .addToPlayListRxCommand()
                 .switchToLatest()
                 .compose(Live.<PlayList>bindLifecycle(this))
                 .subscribe(new Consumer<PlayList>() {

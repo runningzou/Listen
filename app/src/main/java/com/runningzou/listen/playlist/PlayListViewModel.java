@@ -233,9 +233,9 @@ public class PlayListViewModel extends ViewModel {
                                 song.setPlay_list_id(playList.getId());
                                 playList.getSongs().add(song);
                                 playList.setNumOfSongs(playList.getSongs().size());
+                                e.onNext(playList);
                                 mDaoSession.getPlayListDao().update(playList);
                                 mDaoSession.getSongDao().insert(song);
-                                e.onNext(playList);
                             }
 
 
